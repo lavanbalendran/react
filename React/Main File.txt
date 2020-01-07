@@ -1,0 +1,123 @@
+import random
+import time
+import os
+os.chdir("/Users/lavanbalendran/desktop/react")
+from character_file import *
+from attack_class import *
+from reward_class import *
+
+program = True
+while program == True:
+    print("Welcome to React")
+    time.sleep(1)
+    print("Here are your characters")
+    time.sleep(1)
+    print("\n")
+    ishiguro = Ishiguro("Ishiguro", 200, 100, 400, 500, 300, 15, 5, 10, 5)
+    ishiguro.show_stats()
+    print("\n")
+    ishiguro.show_attacks()
+    print("\n")
+    time.sleep(1)
+    risotto_nero = Risotto_Nero("Risotto Nero", 400, 300, 500, 200, 100, 20, 10, 5, 15)
+    risotto_nero.show_stats()
+    print("\n")
+    risotto_nero.show_attacks()
+    print('\n')
+    time.sleep(1)
+    forto = Forto("Forto", 500, 400, 100, 200, 300, 15, 5, 15, 20)
+    forto.show_stats()
+    print("\n")
+    forto.show_attacks()
+    print('\n')
+    time.sleep(1)
+    piano = Piano("Piano", 300, 200, 400, 100, 500, 20, 15, 5, 10)
+    piano.show_stats()
+    print("\n")
+    piano.show_attacks()
+    print('\n')
+
+    characters = ['Ishiguro', 'Risotto Nero', 'Forto', 'Piano']
+    player1 = input("Which character do you chose? ")
+    print('\n')
+    if player1 == "Ishiguro":
+        player = Ishiguro("Ishiguro", 200, 100, 400, 500, 300, 15, 5, 10, 5)
+        #i feel like above line is repetitive, see if i can cut it elsewhere
+    elif player1 == "Risotto Nero":
+        player = Risotto_Nero("Risotto Nero", 400, 300, 500, 200, 100, 20, 10, 5, 15)
+    elif player1 == "Forto":
+        player = Forto("Forto", 500, 400, 100, 200, 300, 15, 5, 15, 20)
+    elif player1 == "Piano":
+        player = Piano("Piano", 300, 200, 400, 100, 500, 20, 15, 5, 10)
+    print("You have chosen" , player1)
+    characters.remove(player1)
+    computer = random.choice(characters)
+    if computer == "Ishiguro":
+        comp = Ishiguro("Ishiguro", 200, 100, 400, 500, 300, 15, 5, 10, 5)
+        #i feel like above line is repetitive, see if i can cut it elsewhere
+    elif computer == "Risotto Nero":
+        comp = Risotto_Nero("Risotto Nero", 400, 300, 500, 200, 100, 20, 10, 5, 15)
+    elif computer == "Forto":
+        comp = Forto("Forto", 500, 400, 100, 200, 300, 15, 5, 15, 20)
+    elif computer == "Piano":
+        comp = Piano("Piano", 300, 200, 400, 100, 500, 20, 15, 5, 10)
+    ###this feels like a lot, see if i can cut (all of the elif and if statements)
+    print('\n')
+    print("Your opponent is" , computer)
+    print("\n")
+    print("Your battle will begin in...")
+    time.sleep(1)
+    print("3")
+    print("\n")
+    time.sleep(1)
+    print("2")
+    print("\n")
+    time.sleep(1)
+    print("1")
+    print("\n")
+    time.sleep(1)
+    print("Begin!")
+    print('\n')
+    #try making this a method in a class to reduce line numbers
+
+    #where the fighting begins
+    while player.health >= 0 and comp.health >= 0:
+        print("It is your turn.")
+        print("\n")
+        player.show_attacks() #for some reason prints out a None line
+        print("\n")
+        attack_choice = int(input("Choose an attack: "))
+        if attack_choice == 1:
+            comp.take_damage(player.attack1)
+        elif attack_choice == 2:
+            comp.take_damage(player.attack2)
+        elif attack_choice == 3:
+            comp.take_damage(player.attack3)
+        elif attack_choice == 4:
+            comp.take_damage(player.attack4)
+        print("\n")
+        print("Opponent Health:" , comp.health)
+        comp_attack = [comp.attack1, comp.attack2, comp.attack3, comp.attack4]
+        comp_attack_choice = random.choice(comp_attack)
+        print("\n")
+        print("Opponent Attack:" , comp_attack_choice)
+        print("\n")
+        player.take_damage(comp_attack_choice)
+        print("Player Health: ", player.health)
+        print("\n")
+        if player.health <= 0:
+            print(player.character_name , "is dead!")
+            print("You have lost.")
+            break
+        if comp.health <= 0:
+            print(comp.character_name, "is dead!")
+            print("You have won!")
+            print("Congratulations young warrior!")
+            
+
+        #doesnt change
+        
+        
+        
+    #while player1 or opponent health is not 0, run the following
+    

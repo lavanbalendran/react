@@ -1,0 +1,136 @@
+import random
+
+class character:
+    def __init__(self,character_name1, health1, strength1, agility1, block1, special1, attack11, attack12, attack13, attack14):
+        self.character_name = character_name1
+        self.health = health1
+        self.strength = strength1
+        self.agility = agility1
+        self.block = block1
+        self.special = special1
+        self.attack1 = attack11
+        self.attack2 = attack12
+        self.attack3 = attack13
+        self.attack4 = attack14
+
+    def take_damage(self, opponent_attack):
+        self.health = self.health - opponent_attack
+
+
+class Ishiguro(character):
+    def stats(self):
+        self.character_name = "Ishiguro"
+        self.health = 200
+        self.strength = 100
+        self.agility = 400
+        self.block = 500
+        self.special = 300
+        self.attack1 = 15
+        self.attack2 = 5  #come back for affect of agility and block
+        self.attack3 = 10 
+        self.attack4 = 5 #agility and block
+        
+    def show_attacks(self):
+        print("Attacks:")
+        print('1. Mini Black Holes: 15') #make one line
+        print('2. Increase Gravity: 5')
+        print('3. Change Gravity: 10')
+        print('4. Levitation: 5')
+
+    def show_stats(self):
+        print("Name: Ishiguro") #make one line
+        print("Health: 200")
+        print("Strength: 100")
+        print("Agility: 400")
+        print("Block: 500")
+        print("Special: 300")
+
+
+class Risotto_Nero(character):
+    def stats(self):
+        self.character_name = 'Risotto Nero'
+        self.health = 400
+        self.strength = 300
+        self.agility = 500
+        self.block = 200
+        self.special = 100
+        self.attack1 = 20
+        self.attack2 = 10
+        self.attack3 = 5 
+        self.attack4 = 15
+
+    def show_attacks(self):
+        print("Attacks:")
+        print('1. Lightning Bolt: 20') #make one line
+        print('2. Induced Magnetism: 10')
+        print('3. Bright Flash: 5')
+        print('4. Shock: 15')
+
+    def show_stats(self):
+        print("Name: Risotto Nero")
+        print("Health: 400")
+        print("Strength: 300")
+        print("Agility: 500")
+        print("Block: 200")
+        print("Special: 100")
+
+
+class Forto(character):
+    def stats(self):
+        self.character_name = 'Forto'
+        self.health = 500
+        self.strength = 400
+        self.agility = 100
+        self.block = 200
+        self.special = 300
+        self.attack1 = 15
+        self.attack2 = 5
+        self.attack3 = 15 
+        self.attack4 = 20
+
+    def show_attacks(self):
+        print("Attacks:")
+        print('1. Compression: 15') #make one line
+        print('2. Glue: 5')
+        print('3. Explosion: 15')
+        print('4. Atomic Disintegration: 20')
+
+    def show_stats(self):
+        print("Name: Forto")
+        print("Health: 500")
+        print("Strength: 400")
+        print("Agility: 100")
+        print("Block: 200")
+        print("Special: 300")
+
+
+class Piano(character):
+    def stats(self):
+        self.character_name = 'Piano'
+        self.health = 300
+        self.strength = 200
+        self.agility = 400
+        self.block = 100
+        self.special = 500
+        self.attack1 = 20
+        self.attack2 = 15
+        self.attack3 = 5 #come back for afteraffects
+        self.attack4 = 10
+
+    def show_attacks(self):
+        print("Attacks:")
+        print('1. Nuclear Decay: 20') #make one line
+        print('2. Nuetron Attack: 15')
+        print('3. Radiation: 5')
+        print('4. Neutrino Rain: 10')
+
+    def show_stats(self):
+        print("Name: Piano")
+        print("Health: 300")
+        print("Strength: 200")
+        print("Agility: 400")
+        print("Block: 100")
+        print("Special: 500")
+
+
+###make all the characters be under one class, itll be easier to call on them 
